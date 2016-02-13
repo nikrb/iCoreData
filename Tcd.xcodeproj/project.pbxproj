@@ -24,6 +24,8 @@
 		BCE62FB41C6EBA0E009C23C6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62FB31C6EBA0E009C23C6 /* TableViewController.swift */; };
 		BCE62FB51C6EBA0E009C23C6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62FB31C6EBA0E009C23C6 /* TableViewController.swift */; };
 		BCE62FB61C6EBA0E009C23C6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62FB31C6EBA0E009C23C6 /* TableViewController.swift */; };
+		BCE62FB71C6EC9B2009C23C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62F3D1C6E8B87009C23C6 /* AppDelegate.swift */; };
+		BCE62FB81C6EC9B3009C23C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62F3D1C6E8B87009C23C6 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +295,7 @@
 				BCE62F711C6E8D0A009C23C6 /* LogItem+CoreDataProperties.swift in Sources */,
 				BCE62F741C6E8D0A009C23C6 /* LogItem.swift in Sources */,
 				BCE62F561C6E8B87009C23C6 /* TcdTests.swift in Sources */,
+				BCE62FB71C6EC9B2009C23C6 /* AppDelegate.swift in Sources */,
 				BCE62FB51C6EBA0E009C23C6 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +307,7 @@
 				BCE62F721C6E8D0A009C23C6 /* LogItem+CoreDataProperties.swift in Sources */,
 				BCE62F751C6E8D0A009C23C6 /* LogItem.swift in Sources */,
 				BCE62F611C6E8B87009C23C6 /* TcdUITests.swift in Sources */,
+				BCE62FB81C6EC9B3009C23C6 /* AppDelegate.swift in Sources */,
 				BCE62FB61C6EBA0E009C23C6 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

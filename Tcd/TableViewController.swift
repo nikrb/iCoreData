@@ -13,6 +13,7 @@ class TableViewController: UITableViewController {
     var logItems = [LogItem]()
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    
 
     
     func fetchLog() {
@@ -39,8 +40,16 @@ class TableViewController: UITableViewController {
         // Set the predicate on the fetch request
         fetchRequest.predicate = predicate
         
-        if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [LogItem] {
-            logItems = fetchResults
+        do {
+            if let fetchResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? [LogItem] {
+                logItems = fetchResults
+                
+                let text = logItems[0].valueForKey("itemText") as! String
+                
+                print("fetched item text[\(text)] obj:\(logItems)")
+            }
+        } catch let fetchError as NSError{
+            print("fetching error: \(fetchError.localizedDescription)")
         }
     }
     
@@ -53,10 +62,12 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        if let moc = self.managedObjectContext {
+        //if let moc = self.managedObjectContext {
+        if logItems.count == 0 {
+            print("no items so creating dummies")
             
             // Create some dummy data to work with
-            var items = [
+            let items = [
                 ("Best Animal", "Dog"),
                 ("Best Language","Swift"),
                 ("Worst Animal","Cthulu"),
@@ -66,7 +77,7 @@ class TableViewController: UITableViewController {
             // Loop through, creating items
             for (itemTitle, itemText) in items {
                 // Create an individual item
-                LogItem.createInManagedObjectContext(moc,
+                LogItem.createInManagedObjectContext( self.managedObjectContext,
                     title: itemTitle, text: itemText)
             }
         }
@@ -95,6 +106,7 @@ class TableViewController: UITableViewController {
 
         let logItem = logItems[indexPath.row]
         cell.textLabel!.text = logItem.title
+        cell.detailTextLabel!.text = logItem.itemText
 
         return cell
     }

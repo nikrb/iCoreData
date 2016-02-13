@@ -15,8 +15,9 @@ class LogItem: NSManagedObject {
 // Insert code here to add functionality to your managed object subclass
     class func createInManagedObjectContext( moc : NSManagedObjectContext, title:String, text:String) -> LogItem{
         let newItem = NSEntityDescription.insertNewObjectForEntityForName("LogItem", inManagedObjectContext: moc) as! LogItem
-        newItem.title = "My First Log"
-        newItem.itemText = "testing core data"
+        newItem.title = title
+        newItem.itemText = text
+        print("created new item:\(newItem)")
         return newItem
     }
 }
