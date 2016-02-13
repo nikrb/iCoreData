@@ -14,7 +14,14 @@ class TableViewController: UITableViewController {
     
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-
+    func saveItems(){
+        print("saving items")
+        do{
+            try managedObjectContext.save()
+        } catch let err as NSError {
+            print("save error: \(err.localizedDescription)")
+        }
+    }
     
     func fetchLog() {
         let fetchRequest = NSFetchRequest(entityName: "LogItem")
@@ -44,9 +51,13 @@ class TableViewController: UITableViewController {
             if let fetchResults = try managedObjectContext.executeFetchRequest(fetchRequest) as? [LogItem] {
                 logItems = fetchResults
                 
-                let text = logItems[0].valueForKey("itemText") as! String
+                // array index out of range
+                // let text = logItems[0].valueForKey("itemText") as! String
                 
-                print("fetched item text[\(text)] obj:\(logItems)")
+                print("fetched items:")
+                for obj in logItems {
+                    print("title[\(obj.title)] text[\(obj.itemText)]")
+                }
             }
         } catch let fetchError as NSError{
             print("fetching error: \(fetchError.localizedDescription)")
@@ -62,8 +73,12 @@ class TableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        fetchLog()
+        
         //if let moc = self.managedObjectContext {
-        if logItems.count == 0 {
+        if logItems.count > 0 {
+            // print("fetched items:\(logItems)")
+        } else {
             print("no items so creating dummies")
             
             // Create some dummy data to work with
@@ -80,8 +95,8 @@ class TableViewController: UITableViewController {
                 LogItem.createInManagedObjectContext( self.managedObjectContext,
                     title: itemTitle, text: itemText)
             }
+            saveItems()
         }
-        fetchLog()
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,25 +126,47 @@ class TableViewController: UITableViewController {
         return cell
     }
 
-    /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView,
+                commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+                forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
+            let delItem = logItems[indexPath.row]
+            managedObjectContext.deleteObject(delItem)
+            // refresh our list
+            self.fetchLog()
+            
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    /** TODO: inserting new rows
+    func saveNewItem(title : String) {
+        // Create the new  log item
+        var newLogItem = LogItem.createInManagedObjectContext(self.managedObjectContext, title: title, text: "")
+        
+        // Update the array containing the table view row data
+        self.fetchLog()
+        
+        // Animate in the new row
+        // Use Swift's find() function to figure out the index of the newLogItem
+        // after it's been added and sorted in our logItems array
+        if let newItemIndex = find(logItems, newLogItem) {
+            // Create an NSIndexPath from the newItemIndex
+            let newLogItemIndexPath = NSIndexPath(forRow: newItemIndex, inSection: 0)
+            // Animate in the insertion of this row
+            logTableView.insertRowsAtIndexPaths([ newLogItemIndexPath ], withRowAnimation: .Automatic)
+        }
+    }
+    **/
 
     /*
     // Override to support rearranging the table view.
