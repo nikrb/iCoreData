@@ -21,6 +21,9 @@
 		BCE62F731C6E8D0A009C23C6 /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62F6F1C6E8D0A009C23C6 /* LogItem.swift */; };
 		BCE62F741C6E8D0A009C23C6 /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62F6F1C6E8D0A009C23C6 /* LogItem.swift */; };
 		BCE62F751C6E8D0A009C23C6 /* LogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62F6F1C6E8D0A009C23C6 /* LogItem.swift */; };
+		BCE62FB41C6EBA0E009C23C6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62FB31C6EBA0E009C23C6 /* TableViewController.swift */; };
+		BCE62FB51C6EBA0E009C23C6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62FB31C6EBA0E009C23C6 /* TableViewController.swift */; };
+		BCE62FB61C6EBA0E009C23C6 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE62FB31C6EBA0E009C23C6 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,7 @@
 		BCE62F621C6E8B87009C23C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCE62F6E1C6E8D0A009C23C6 /* LogItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LogItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BCE62F6F1C6E8D0A009C23C6 /* LogItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogItem.swift; sourceTree = "<group>"; };
+		BCE62FB31C6EBA0E009C23C6 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				BCE62F6F1C6E8D0A009C23C6 /* LogItem.swift */,
 				BCE62F3D1C6E8B87009C23C6 /* AppDelegate.swift */,
 				BCE62F3F1C6E8B87009C23C6 /* ViewController.swift */,
+				BCE62FB31C6EBA0E009C23C6 /* TableViewController.swift */,
 				BCE62F411C6E8B87009C23C6 /* Main.storyboard */,
 				BCE62F471C6E8B87009C23C6 /* Assets.xcassets */,
 				BCE62F491C6E8B87009C23C6 /* LaunchScreen.storyboard */,
@@ -273,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCE62F731C6E8D0A009C23C6 /* LogItem.swift in Sources */,
+				BCE62FB41C6EBA0E009C23C6 /* TableViewController.swift in Sources */,
 				BCE62F401C6E8B87009C23C6 /* ViewController.swift in Sources */,
 				BCE62F3E1C6E8B87009C23C6 /* AppDelegate.swift in Sources */,
 				BCE62F701C6E8D0A009C23C6 /* LogItem+CoreDataProperties.swift in Sources */,
@@ -287,6 +293,7 @@
 				BCE62F711C6E8D0A009C23C6 /* LogItem+CoreDataProperties.swift in Sources */,
 				BCE62F741C6E8D0A009C23C6 /* LogItem.swift in Sources */,
 				BCE62F561C6E8B87009C23C6 /* TcdTests.swift in Sources */,
+				BCE62FB51C6EBA0E009C23C6 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +304,7 @@
 				BCE62F721C6E8D0A009C23C6 /* LogItem+CoreDataProperties.swift in Sources */,
 				BCE62F751C6E8D0A009C23C6 /* LogItem.swift in Sources */,
 				BCE62F611C6E8B87009C23C6 /* TcdUITests.swift in Sources */,
+				BCE62FB61C6EBA0E009C23C6 /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
